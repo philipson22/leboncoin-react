@@ -8,7 +8,8 @@ import LogIn from "./containers/LogIn";
 import Profile from "./containers/Profile";
 import Publish from "./containers/Publish";
 import Header from "./components/Header";
-
+import Offer from "./containers/Offer";
+//import Offers from "./containers/Offers";
 class App extends Component {
   state = {
     user: {
@@ -65,6 +66,10 @@ class App extends Component {
               )}
             />
             <Route
+              path="/offer/:id"
+              render={props => <Offer {...props} user={user} />}
+            />
+            <Route
               path="/profile/:id"
               render={props => <Profile {...props} user={user} />}
             />
@@ -72,6 +77,10 @@ class App extends Component {
               path="/publish"
               render={props => <Publish {...props} user={user} />}
             />
+            {/* <Route
+              path="/offers"
+              render={props => <Offers {...props} user={user} />}
+            /> */}
           </div>
         </Fragment>
       </Router>

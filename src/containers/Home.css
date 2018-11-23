@@ -1,0 +1,12 @@
+.element-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-element {
+  /* background-color: blue; */
+}
+
+.right-element {
+  background-color: blueviolet;
+}

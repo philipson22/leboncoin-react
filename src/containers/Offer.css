@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+}
+
+.empty-state-image {
+  height: 300px;
+  width: 300px;
+  background-color: grey;
+}
+
+.offer-body {
+  flex: 2;
+}
+
+.creator-box {
+  flex: 1;
+}

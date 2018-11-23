@@ -1,0 +1,19 @@
+.offers-filter-background {
+  display: flex;
+  flex-direction: row;
+}
+
+.offers-filter-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-evenly;
+  height: 200px;
+}
+.offers-filter-container2 {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  margin-left: 15px;
+  margin-right: 15px;
+}

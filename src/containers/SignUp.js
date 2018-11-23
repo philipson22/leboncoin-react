@@ -1,77 +1,23 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from "react";
 
-class SignUp extends Component {
-  state = {
-    email: "",
-    password: "",
-    username: ""
-  };
+import SignUpInformation from "../components/SignUpInformation";
+import SignUpInformationAccount from "../components/SignUpInformationAccount";
 
-  handleChange = event => {
-    const target = event.target;
-    const name = target.name;
-
-    // Utile si le formulaire contient des éléments "checkbox"
-    const value = target.type === "checkbox" ? target.checked : target.value;
-
-    this.setState({ [name]: value });
-  };
-
-  onSubmit = event => {
-    axios
-      .post("https://leboncoin-api.herokuapp.com/api/user/sign_up", {
-        email: this.state.email,
-        password: this.state.password,
-        username: this.state.username
-      })
-      .then(response => {
-        // console.log(response.data);
-        if (response.data && response.data.token) {
-          this.props.logIn({
-            token: response.data.token,
-            username: response.data.account.username,
-            _id: response.data._id
-          });
-
-          this.props.history.push("/");
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    event.preventDefault();
-  };
-
+class SignUp extends React.Component {
   render() {
     return (
-      <form onSubmit={this.onSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="text"
-          value={this.state.email}
-          onChange={this.handleChange}
+      <div className="element-form">
+        <div className="left-element">
+          <SignUpInformation />
+        </div>
+        <div />
+
+        <div className="right-element" />
+        <SignUpInformationAccount
+          logIn={this.props.logIn}
+          history={this.props.history}
         />
-        <label htmlFor="password">password</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          value={this.state.password}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="username">username</label>
-        <input
-          id="username"
-          name="username"
-          type="text"
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
-        <button type="submit">Valider</button>
-      </form>
+      </div>
     );
   }
 }
